@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 
@@ -38,7 +39,9 @@ void parse_input(char *input, struct flying_object *fo) {
 int main() {
 	struct flying_object fo1;
 
-	parse_input("duck:50,75;180;314", &fo1);
+	char input_buff[] = "duck:50,75;180;314";
+
+	parse_input(input_buff, &fo1);
 
 	printf("I see a '%s' at (%f, %f), heading %f degrees at %f furlongs per fortnight!\n", fo1.type, fo1.x, fo1.y, fo1.heading, fo1.speed);
 
