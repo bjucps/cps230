@@ -1,5 +1,9 @@
 COMS = hello.com \
-	strbios.com
+	strbios.com \
+	textgraf.com \
+	vgagraf.com \
+	vgagraf2.com \
+	mousepal.com
 
 all: $(COMS)
 

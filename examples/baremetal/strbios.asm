@@ -1,10 +1,8 @@
 ; example program from lecture notes on using BIOS services
-
 bits 16
 org	0x100
 
-section .text
-_main:
+start:
 	lea     si, [prompt]
 	call    putstring	; a custom function to print a NUL-terminated string (see below)
 
@@ -28,7 +26,6 @@ getchar:
 ; clobbers: AX
 	mov     ah, 0           ; call interrupt x16 sub interrupt 0
 	int     0x16
-	mov     ah, 0
 	ret
 
 putchar:
@@ -76,7 +73,6 @@ putstring:
 .done:
 	ret
 
-section .data
 prompt	db "Please enter your first name: ", 0
 buffer	times 32 db 0
 buflen	equ ($ - buffer) ; (define "buflen" as a constant symbol equal to the allocated size of "buffer")
