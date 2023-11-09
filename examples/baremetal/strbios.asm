@@ -47,7 +47,7 @@ getstring:
 .loop:	call    getchar		; read a character
 	cmp     al, 13		; halt on '\r' (pressing ENTER gives us this)
 	je      .done		;       (go to NUL-termination)
-	stosb			; equivalent to "MOV AL, [DI]" then "INC DI"
+	stosb			; equivalent to "MOV [DI], AL" then "INC DI"
 	call    putchar		; echo character (so user can see what is typed)
 	loop	.loop
 
