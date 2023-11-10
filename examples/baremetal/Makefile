@@ -1,9 +1,13 @@
 COMS = hello.com \
 	strbios.com \
-	textgraf.com \
-	vgagraf.com \
-	vgagraf2.com \
-	mousepal.com
+	keyboard.com \
+	screen/textgraf.com \
+	screen/vgagraf.com \
+	screen/vgagraf2.com \
+	screen/mousepal.com \
+	sound/beep.com \
+	sound/drbob.com \
+	sound/jbond2.com
 
 all: $(COMS)
 
