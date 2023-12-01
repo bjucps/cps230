@@ -63,7 +63,7 @@ start:
 	int	0x21
 
 ; Very brain-dead keyboard interrupt handler (does not properly handle ANY extended key sequences)
-; Sets kbarray[SCAN_CODE] to 1 on keypress, and to 0 on keyrelease
+; Sets kbarray[SCAN_CODE] to 0xff on keypress, and to 0x00 on keyrelease
 ; (where SCAN_CODE is the numeric scan code [NOT ASCII CODE!] of the key in question)
 ; (does NOT chain to original handler; handles its own interrupt acknowledgements)
 keyboard_isr:

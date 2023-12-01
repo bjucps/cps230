@@ -12,8 +12,8 @@ BpC	equ	2	; 2 bytes per character
 
 CHARS	equ	4	; number of characters in the message "BJU!"
 
-; Compute starting offset to store "BJU!" in VRAM centered on row 12
-MESSAGE_START	equ	(12 * CpR * BpC) + (((CpR - (CHARS / 2)) / 2) * BpC)
+; Compute starting offset to store "BJU!" in VRAM centered near mid-screen
+MESSAGE_START	equ	((RpS / 2) * CpR * BpC) + (((CpR / 2) - (CHARS / 2)) * BpC)
 
 section .text
 start:
