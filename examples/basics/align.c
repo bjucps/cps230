@@ -1,11 +1,11 @@
 #include <stdio.h>
 
 #define EXAMPLE_FIELDS \
+    X(char, c, "'%c'")\
     X(int, i, "%d")\
     X(double, d, "%lf")\
-    X(char, c, "'%c'")\
 
-typedef union example {
+typedef struct example {
     #define X(type, name, fmt) type name;
     EXAMPLE_FIELDS
     #undef X
