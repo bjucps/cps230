@@ -70,7 +70,7 @@ keyboard_isr:
 	push	ax
 	push	bx
 	
-	in	al, 0x60	; Read scancode from keyboard controller
+	in	al, 0x60	; Read scancode from Intel 8042 keyboard controller (https://stanislavs.org/helppc/8042.html)
 	
 	mov	bl, al
 	and	bx, 0x7f	; Keep only bottom 7 bits (BX=index into kbarray)
@@ -79,7 +79,7 @@ keyboard_isr:
 	mov	[cs:kbarray + bx], al
 	
 	mov	al, 0x20
-	out	0x20, al	; Acknowledge interrupt
+	out	0x20, al	; Acknowledge interrupt to Intel 8259 PIC (https://stanislavs.org/helppc/8259.html)
 	
 	pop	bx
 	pop	ax
